@@ -1,0 +1,58 @@
+<!-- Реализуйте последние 2 слайда в презентации с помощью пройденого на уроке материала -->
+<!-- Slider 1 INHERITANCE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    
+</head>
+<body>
+    <script>
+        // Визначення базового класу Man
+        class Man {
+            constructor (walk, eat, drink) {
+                this.walk = walk;
+                this.eat = eat;
+                this.drink = drink;
+            }
+            // Метод для виведення інформації
+            showInfo () {
+                return `Він любить ${this.walk}, ${this.eat}, ${this.drink}`;
+            }    
+        }
+
+        // Визначення підкласу Soldier, що успадковує від Man
+        class Soldier extends Man {
+            constructor (walk, eat, drink, shoot) {
+                super(walk, eat, drink);
+                this.shoot = shoot;
+            }
+            // Перевизначення методу showInfo з додаванням додаткової інформації
+            showInfo() {
+                return `${super.showInfo()}, ${this.shoot}`;
+            }
+        }
+
+        // Визначення підкласу Doctor, що успадковує від Man
+        class Doctor extends Man {
+            constructor (walk, eat, drink, cure) {
+                super(walk, eat, drink);
+                this.cure = cure;
+            }
+            // Перевизначення методу showInfo з додаванням додаткової інформації
+            showInfo() {
+                return `${super.showInfo()}, ${this.cure}`;
+            }
+        }
+
+        // Створення екземплярів
+        const soldier = new Soldier ("гуляти в парку", "рибу", "віскі", "стріляє з автомата");
+        const doctor = new Doctor ("гуляти в центрі", "салат", "сік", "робить операції");
+
+        // Виведення інформації
+        console.log(soldier.showInfo());
+        console.log(doctor.showInfo());
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!-- Создайте функцию, которая возвращает день недели для даты.
+День нужно возвратить в формате - понедельник имеет номер 1, вторник номер 2, …, воскресенье - номер 7. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <input type="date" id="inputDate">
+    <button onclick="getDayOfWeek()">Get Day of Week</button>
+    <p id="result"></p>
+    <script>
+        function getDayOfWeek() {
+            const inputDate = new Date(document.getElementById('inputDate').value); // Отримуємо введену користувачем дату
+            const daysOfWeek = ["неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота"]; // Масив з назвами днів тижня
+            
+            const dayNumber = inputDate.getDay(); // Отримуємо номер дня тижня (від 0 до 6)
+            const dayName = daysOfWeek[dayNumber]; // Вибираємо назву дня тижня з масиву
+            
+            // Відображаємо результат на сторінці
+            document.getElementById('result').textContent = `${dayName} має номер ${dayNumber === 0 ? 7 : dayNumber}`;
+        }
+    </script>
+</body>
+</html>

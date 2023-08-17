@@ -1,0 +1,63 @@
+<!-- Реализуйте последние 2 слайда в презентации с помощью пройденого на уроке материала -->
+<!-- Slider 2 POLIMORPHISM -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    
+</head>
+<body>
+    <script>
+       // Базовий клас Doctor 
+       class Doctor {
+            constructor(walk, eat, drink) {
+                this.walk = walk;
+                this.eat = eat;
+                this.drink = drink;
+            }
+            // Загальний метод лікування
+            cure() {
+                console.log("Загальний метод лікування для всіх лікарів");
+            }
+            // Метод для відображення інформації
+            showInfo() {
+                console.log(`Він любить ${this.walk}, ${this.eat}, ${this.drink}`);
+            }
+        }
+
+        // Підклас Dentist, успадкований Doctor
+        class Dentist extends Doctor {
+            constructor(walk, eat, drink) {
+                super(walk, eat, drink);
+            }
+            // Перевизначений метод лікування для стоматолога
+            cure() {
+                console.log("Лікує зуби");
+            }
+        }
+
+        // Підклас Surgeon, успадкований Doctor
+        class Surgeon extends Doctor {
+            constructor(walk, eat, drink) {
+                super(walk, eat, drink);
+            }
+            // Перевизначений метод лікування для хірурга
+            cure() {
+                console.log("Виконує операції");
+            }
+        }
+
+        // Створення екземплярів
+        const dentist = new Dentist("гуляти у парку", "їсти морозиво", "пити сік");
+        const surgeon = new Surgeon("гуляти в центрі", "їсти шашлик", "пити пиво");
+
+        // Виведення інформації та виклик методу лікування для кожного доктора
+        dentist.showInfo();
+        dentist.cure();
+
+        surgeon.showInfo();
+        surgeon.cure();
+    </script>
+</body>
+</html>
